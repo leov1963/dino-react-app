@@ -1,4 +1,5 @@
 import './App.css';
+import Comment from './Comment'
 
 function App() {
   const post = {
@@ -7,6 +8,8 @@ function App() {
     body: "Tis just a flesh wound",
     comments: ["Nice!", "Great post!", "Wow!"]
   }
+  // map return an array
+  const comments = post.comments.map((comment, index) => (<Comment text={comment} key={index}/>))
 
   return (
     <div className="App">
@@ -14,9 +17,8 @@ function App() {
       <p>{post.author}</p>
       <p>{post.body}</p>
       <h3>Comments:</h3>
-      <p>{post.comments[0]}</p>
-      <p>{post.comments[1]}</p>
-      <p>{post.comments[2]}</p>
+      {/* <p>{post.comments[0]}</p> */}
+      { comments }
     </div>
   );
 }
